@@ -6,38 +6,23 @@ Fait par Axel Lheureux et Théo Plockyn
 Introduction - Budgetisation
 =============
 
-## Equipements 
+### Equipements 
 Les noms d'équipements sont cliquables.  
 
 - Switch [**TP-Link TL-SG1024D**](https://www.amazon.fr/TP-Link-TL-SG1024D-Gigabit-Rackable-Bo%C3%AEtier/dp/B003UWXFM0/ref=sr_1_1?ie=UTF8&qid=1476177479&sr=8-1) 96.99€ * 2  
 - Routeur [**Cisco rv320**](http://www.ldlc-pro.com/fiche/PB00149718.html) 158.29€ 
 
-## Abonnement internet
+### Abonnement internet
 - Orange fibre intense 65€ HT/mois * 2
 
-## Total
+### Total
 482.27€
 
 ![Architecture du réseau](./arx.png "Schéma d'architecture du réseau")
 
 \newpage
 
-### Explications
-
-La plage d'adresse est en /24.  
-Le routeur est configuré par défaut sur l'adresse 192.168.1.1
-Le serveur sera en 192.168.1.2, les postes branchés sur le switch 1 seront sur la plage d'adresse à partir de 192.168.1.100, sur le switch 2 sur la plage à partir de 192.168.1.200 pour faciliter, lors d'un problème, la recherche physique de la machine fautive.  
-Le routeur possédant une interface de gestion web, il est très aisé de la configurer.
-
-Les requêtes entrantes sur le port 80 sont redirigées vers le serveur web. 
-
-
-
-Les communications provenant des machines de l'entreprise comme d'Internet sont gérées par le routeur Cisco rv320.
-
-\newpage
-
-### Load Balance
+## Load Balance
 
 Le routeur Cisco rv320 possède deux ports WAN et fait le load-balancing automatiquement, il suffit d'activer l'option dans l'interface d'administration
 
@@ -51,7 +36,7 @@ Le routeur Cisco rv320 possède deux ports WAN et fait le load-balancing automat
 
 - - - 
 
-### Configuration DHCP/DNS:
+## Configuration DHCP & DNS:
 
         client-router#configure terminal  
         client-router(config)#ip dhcp pool CLIENT_LAN  
@@ -67,8 +52,8 @@ Le routeur Cisco rv320 possède deux ports WAN et fait le load-balancing automat
 Pour les connexions extérieures, cela est géré lorsqu'on réserve le nom de domaine. ( Pour une configuration où on possède un seul fournisseur. Pour deux fournisseurs, nous n'avons pas trouvé la solution pour le moment )
 
 \newpage
-### Sources:
+## Sources:
 [**Lien vers IT-Connect pour DHCP/DNS**](http://www.it-connect.fr/configurer-le-service-dhcp-sur-un-routeur-cisco/)
-
-
+[**Lien vers un tutoriel cisco pour le dual WAN**](http://sbkb.cisco.com/CiscoSB/GetArticle.aspx?docid=d6c17b6ee53141f59ae03c6defeb20cb_Dual_WAN_Configuration_on_RV320_Router.xml&pid=2&converted=0)
+[**Lien vers la documentation cisco du routeur**](http://www.cisco.com/c/dam/en/us/td/docs/routers/csbr/rv320/administration/guide/en/rv32x_ag_en.pdf)
 
